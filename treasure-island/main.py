@@ -21,26 +21,29 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 *******************************************************************************
 ''')
 print("Welcome to Treasure Island.")
-print("Your mission is to find the treasure.") 
+print("Your mission is to find the treasure.")
 play = True
 while play:
     crossroad = input("You're at a crossroad. Where do you want to go? Type \"left\" or \"right\"")
     if crossroad == "right":
-      print("you fall into a hole. Game Over")
+        print("you fall into a hole. Game Over")
     else:
-      action = input("You've come to a lake. There is an island in the middle of the lake.\n Type \"wait\" to wait for a boat. Type \"swim\" to swim across.")
-      if action == "swim":
-        print("Attacked by a trout. Game Over")
-      else:
-        door = input("You arrive at the island unharmed. There is a house with 3 doors.\n One red, one yellow and one blue. Which colour do you choose?")
-        if door == "red":
-          print("Burned by Fire. Game Over")
-        elif door == "blue":
-          print("Eaten by Beasts. Game Over")
-        elif door == "yellow":
-          print("You Win!")
+        action = input("You've come to a lake. There is an island in the middle of the lake.\n Type \"wait\" to wait "
+                       "for a boat. Type \"swim\" to swim across.")
+        if action == "swim":
+            print("Attacked by a trout. Game Over")
         else:
-          print("Invalid Pick. Game Over")
+            door = input(
+                "You arrive at the island unharmed. There is a house with 3 doors.\n One red, one yellow and one "
+                "blue. Which colour do you choose?")
+            if door == "red":
+                print("Burned by Fire. Game Over")
+            elif door == "blue":
+                print("Eaten by Beasts. Game Over")
+            elif door == "yellow":
+                print("You Win!")
+            else:
+                print("Invalid Pick. Game Over")
     continue_playing = input("Play again? Y/N \n").lower()
     if continue_playing != "y":
         play = False

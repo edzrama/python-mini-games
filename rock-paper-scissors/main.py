@@ -27,10 +27,10 @@ scissors = '''
 ---.__(___)
 '''
 play = True
+action = [rock, paper, scissors]
 while play:
     robot = randint(0, 2)
     user_in = input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.")
-    action = [rock, paper, scissors]
     if int(user_in) > 2:
         print("Invalid input")
     else:

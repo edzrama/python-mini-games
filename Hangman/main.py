@@ -16,9 +16,7 @@ while play:
     lives = 6
     # For each letter in the chosen_word, add a "_" to 'display'. So if the
     # chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
-    display = []
-    for letter in chosen_word:
-        display.append("_")
+    display = ["_" for _ in chosen_word]
     # Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
     while '_' in display and lives >= 1:
         guess = input("Guess a letter: ").lower()

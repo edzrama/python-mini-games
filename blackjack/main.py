@@ -15,8 +15,7 @@ def deal_cards():
     print(logo)
     user_list = []
     bot_list = []
-    user_list.append(random.choice(cards))
-    user_list.append(random.choice(cards))
+    user_list.extend((random.choice(cards), random.choice(cards)))
     while sum(bot_list) < 17:
         bot_list.append(random.choice(cards))
     calculate_score()
@@ -35,32 +34,31 @@ def calculate_score():
         print_final("You went over. You lose")
     elif sum(bot_list) > 21:
         print_final("Computer went over. You Win")
-    else:
-        if hit:
-            print(f"your cards: {user_list}, current score: {sum(user_list)}")
-            print(f"computer's first: {len(bot_list)}")
+    elif hit:
+        print(f"your cards: {user_list}, current score: {sum(user_list)}")
+        print(f"computer's first: {len(bot_list)}")
 
-            while hit and sum(user_list) < 21 or invalid_input:
-                question = input("Type 'y' to get another card, type 'n' to pass:")
-                if question.lower() == "y":
-                    invalid_input = False
-                    user_list.append(random.choice(cards))
-                    calculate_score()
-                elif question.lower() == "n":
-                    invalid_input = False
-                    hit = False
-                    calculate_score()
-                else:
-                    invalid_input = True
-        else:
-            user_count = sum(user_list)
-            bot_count = sum(bot_list)
-            if user_count > bot_count:
-                print_final("You Win")
-            elif user_count < bot_count:
-                print_final("You Lose")
+        while hit and sum(user_list) < 21 or invalid_input:
+            question = input("Type 'y' to get another card, type 'n' to pass:")
+            if question.lower() == "y":
+                invalid_input = False
+                user_list.append(random.choice(cards))
+                calculate_score()
+            elif question.lower() == "n":
+                invalid_input = False
+                hit = False
+                calculate_score()
             else:
-                print_final("draw")
+                invalid_input = True
+    else:
+        user_count = sum(user_list)
+        bot_count = sum(bot_list)
+        if user_count > bot_count:
+            print_final("You Win")
+        elif user_count < bot_count:
+            print_final("You Lose")
+        else:
+            print_final("draw")
 
 
 def print_final(message):
